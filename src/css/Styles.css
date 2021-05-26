@@ -200,6 +200,9 @@ main {
 }
 
 @media (max-width: 375px) {
+    header{
+        background-image: url("/src/images/bg-header-mobile.svg");
+    }
     main {
         display: flex;
         justify-content: none;
