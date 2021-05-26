@@ -8,30 +8,29 @@
 
 html,
 body {
-    
-    font-family: 'Spartan', sans-serif;
-    
+    font-family: "Spartan", sans-serif;
+
     width: 100%;
     height: 100%;
     background-color: hsl(180, 52%, 96%);
 }
 
-header{
+header {
     width: 100%;
     height: 150px;
     background-color: hsl(180, 29%, 50%);
-    background-image: url('/src/images/bg-header-desktop.svg');
+    background-image: url("/src/images/bg-header-desktop.svg");
     display: flex;
     justify-content: center;
     position: relative;
 }
 
-main{
+main {
     display: flex;
     justify-content: center;
 }
 
-.filters{
+.filters {
     width: 80%;
     max-width: 1440px;
     height: 60px;
@@ -48,36 +47,36 @@ main{
     box-shadow: 0px 3px 15px 0px hsl(180, 8%, 52%);
     font-weight: 700;
     background-color: white;
-
 }
-.size{
+.size {
     width: 80%;
     max-width: 1440px;
 }
 
-.filters__clear{
+.filters__clear {
     color: hsl(180, 8%, 52%);
 }
 
-.filters__actives{
+.filters__actives {
     display: flex;
+    flex-wrap: wrap;
 }
 
-.filters__activesBox{
+.filters__activesBox {
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: hsl(180, 31%, 95%);
     height: 30px;
-    margin-right: 20px;
+    margin: 10px 20px 10px 0px;
 }
-.filters__activesBox p{
+.filters__activesBox p {
     margin: 0px 10px;
     color: hsl(180, 8%, 52%);
 }
 
-.filters__activesClearIco{
+.filters__activesClearIco {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,41 +84,45 @@ main{
     width: 30px;
     height: 100%;
     border-radius: 0px 5px 5px 0px;
-
+    cursor: pointer;
 }
 
-.list{
+.filters__activesClearIco:hover {
+    background-color: hsl(180, 14%, 20%);
+}
+
+.list {
     margin-top: 50px;
 }
 
-.list__item{
+.list__item {
     margin-top: 20px;
     background-color: white;
     border-radius: 5px;
     display: flex;
     align-items: center;
     padding: 30px 50px;
-    height: 250px;
     position: relative;
+    height: 150px;
     -webkit-box-shadow: 0px 3px 15px 0px hsl(180, 8%, 52%);
     -moz-box-shadow: 0px 3px 15px 0px hsl(180, 8%, 52%);
     box-shadow: 0px 3px 15px 0px hsl(180, 8%, 52%);
 }
 
-.list__item h4{
-color: hsl(180, 29%, 50%);
+.list__item h4 {
+    color: hsl(180, 14%, 20%);
 }
 
-.list__itemCompany{
+.list__itemCompany {
     display: flex;
     align-items: center;
 }
-.companyName{
+.companyName {
     color: hsl(180, 29%, 50%);
     font-weight: 700;
 }
 
-.reg{
+.reg {
     background-color: hsl(180, 29%, 50%);
     color: white;
     padding: 4px 8px;
@@ -128,7 +131,7 @@ color: hsl(180, 29%, 50%);
     margin: 0px 10px;
 }
 
-.list__itemInfo{
+.list__itemInfo {
     width: 50%;
     height: 100%;
     display: flex;
@@ -136,22 +139,20 @@ color: hsl(180, 29%, 50%);
     justify-content: space-between;
 }
 
-
-
-.reg:last-child{
+.reg:last-child {
     background-color: hsl(180, 14%, 20%);
 }
 
-.list__itemCompanyDetail{
+.list__itemCompanyDetail {
     display: flex;
     color: hsl(180, 8%, 52%);
 }
 
-.space{
+.space {
     margin: 0px 20px;
 }
 
-.list__itemFilters p{
+.list__itemFilters p {
     background-color: hsl(180, 52%, 96%);
     color: hsl(180, 29%, 50%);
     padding: 6px 8px;
@@ -159,21 +160,88 @@ color: hsl(180, 29%, 50%);
     font-size: small;
     font-weight: 700;
     margin-left: 20px;
+    cursor: pointer;
 }
-.list__itemFilters{
+
+.list__itemFilters p:hover {
+    background-color: hsl(180, 29%, 50%);
+    color: hsl(180, 52%, 96%);
+}
+.list__itemFilters {
     width: 50%;
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
-.list_itemImg{
+.list_itemImg {
     margin-right: 30px;
 }
-.list__itemHover{
-position: absolute;
-left: 0px;
-width: 5px;
-height: 100%;
-background-color: hsl(180, 29%, 50%);
-border-radius: 5px 0px 0px 5px;
+.list__itemHover {
+    position: absolute;
+    left: 0px;
+    width: 5px;
+    height: 100%;
+    background-color: hsl(180, 29%, 50%);
+    border-radius: 5px 0px 0px 5px;
+}
+
+.clear {
+    color: hsl(180, 29%, 50%);
+    cursor: pointer;
+}
+
+.line{
+    display: none;
+}
+
+@media (max-width: 375px) {
+    main {
+        display: flex;
+        justify-content: none;
+    }
+
+    .filters {
+        padding: 0px 15px;
+        height: auto;
+    }
+
+    .size {
+        width: 90%;
+    }
+    .list__item {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+        padding: 15px;
+
+        margin-top: 50px;
+    }
+
+    .list__itemHover {
+        top: 0px;
+    }
+    .list_itemImg{
+        position: absolute;
+        width: 60px;
+        top: -30px;
+    }
+    .line{
+        display: block;
+        margin: 15px 0px;
+    }
+
+    .list__itemInfo{
+        margin-top: 25px;
+        width: 100%;
+    }
+    .list__itemCompany{
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .list__itemFilters{
+        width: 100%;
+        justify-content: flex-start;
+    }
 }

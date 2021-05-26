@@ -36,9 +36,7 @@ const createHTMLItem = ({
     container.className = "list__item"
 
     container.innerHTML = `
-        <div class="list__itemHover">
-
-        </div>
+    ${id < 3 ? `<div class="list__itemHover"></div>` : ""}
         <img class="list_itemImg" src="${logo}" alt="">
 
             <div class="list__itemInfo">
@@ -55,20 +53,22 @@ const createHTMLItem = ({
                 <div class="list__itemCompany">
                     <h4>${position}</h4>
                 </div>
+                
                 <div class="list__itemCompanyDetail">
-                    <p>${postedAt}</p>
-                    <p class="space">•</p>
-                    <p>${contract}</p>
-                    <p class="space">•</p>
-                    <p>${location}</p>
+                <p>${postedAt}</p>
+                <p class="space">•</p>
+                <p>${contract}</p>
+                <p class="space">•</p>
+                <p>${location}</p>
                 </div>
-
+                <hr class="line"></hr>
+                
             </div>
 
             <div class="list__itemFilters">
 
             </div>
-`
+    `
     const onClickFilter = (name) => {
         let find = false;
         filters.forEach((f) => {
@@ -118,7 +118,7 @@ const createHTMLFilter = (name) => {
     <div class="filters__activesClearIco">
         <img src="./src/images/icon-remove.svg" alt="">
     </div>
-`
+    `
     const imgRemove = container.querySelector(".filters__activesClearIco");
 
     imgRemove.addEventListener("click", () => {
@@ -204,3 +204,5 @@ clear.addEventListener("click", () => {
     updateFilters();
     updateList();
 })
+
+
