@@ -138,6 +138,13 @@ const createHTMLFilter = (name) => {
 }
 
 const updateFilters = () => {
+
+    const listContainerFilters = document.querySelector(".filters");
+    if (filters.length === 0) {
+        listContainerFilters.style.display = "none"
+    } else {
+        listContainerFilters.style.display = "flex"
+    }
     const listContainer = document.querySelector(".filters__actives");
     listContainer.innerHTML = "";
 
@@ -148,25 +155,36 @@ const updateFilters = () => {
 
 }
 
+updateFilters()
+
 const updateList = () => {
     const lista = document.querySelector(".list");
     lista.innerHTML = "";
 
     data.forEach(d => {
         var find = false;
+        var countFilter = 0;
 
         filters.forEach(f => {
             d.languages.forEach(l => {
                 if (l === f) {
                     find = true;
+                    countFilter++;
                 }
             })
             d.tools.forEach(t => {
                 if (t === f) {
                     find = true;
+                    countFilter++;
                 }
             })
         })
+
+        if (countFilter === filters.length) {
+            find = true;
+        } else {
+            find = false;
+        }
 
 
         if (find === true || filters.length === 0) {
