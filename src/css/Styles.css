@@ -93,6 +93,7 @@ main {
 
 .list {
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .list__item {
@@ -189,6 +190,9 @@ main {
 .clear {
     color: hsl(180, 29%, 50%);
     cursor: pointer;
+}
+.clear:hover{
+    text-decoration: underline;
 }
 
 .line{
